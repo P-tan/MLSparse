@@ -1,9 +1,12 @@
 #pragma once
 
 #include <cassert>
-#include <Eigen/Dense>
+#include "Vector.h"
 
-inline Eigen::VectorXd prox_L1(double lambda, const Eigen::VectorXd &y)
+namespace MLSparse
+{
+	
+inline Vector prox_L1(double lambda, const Vector &y)
 {
 	assert(lambda >= 0);
 	return y.unaryExpr([lambda](double d) {
@@ -12,3 +15,5 @@ inline Eigen::VectorXd prox_L1(double lambda, const Eigen::VectorXd &y)
 		return 0.;
 	});
 }
+
+} // namespace MLSparse

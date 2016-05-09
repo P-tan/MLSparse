@@ -4,7 +4,7 @@
 #include "MLSparse/prox_L1.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace Eigen;
+using namespace MLSparse;
 
 namespace MLSparseTest
 {		
@@ -15,10 +15,10 @@ namespace MLSparseTest
 		
 		TEST_METHOD(Testprox_L1)
 		{
-			VectorXd in{3};
+			Vector in{3};
 			in << -1, 2, 3;
-			const VectorXd result = prox_L1(2, in);
-			VectorXd expected{3};
+			const Vector result = prox_L1(2, in);
+			Vector expected{3};
 			expected << 0, 0, 1;
 			Assert::IsTrue(expected == result);
 		}
